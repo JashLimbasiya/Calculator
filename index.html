@@ -1,0 +1,185 @@
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Calculator</title>
+
+    <style>
+        .body {
+            background-color: black;
+        }
+
+        .table {
+            padding: 20px;
+            background-color: lightgray;
+            border-radius: 15px;
+        }
+
+        .td {
+            height: 80px;
+            width: 80px;
+            padding: 15px;
+        }
+
+        .td1 {
+            height: 80px;
+            width: 240px;
+            padding: 15px;
+        }
+
+        .btn {
+            width: 65px;
+            height: 65px;
+            border-radius: 15px;
+            border-width: 0px;
+            background-color: darkgray;
+            color: black;
+            font-size: 30px; 
+        }
+
+        .btn:hover {
+            background-color: black;
+            color: lightgreen;
+        }
+
+        .btn1 {
+            width: 177px;
+            height: 65px;
+            border-radius: 15px;
+            background-color: red;
+            color: white;
+            border-width: 0px;
+            font-size: 30px;
+        }
+
+        .btn1:hover {
+            background-color: darkred;
+        }
+
+        .disp {
+            border-radius: 15px;
+            border-width: 0px;
+            background-color: black;
+            color: lightgreen;
+            text-align: right;
+            font-size: 35px;
+            padding: 17px;
+            width: 400px;
+            height: 65px;
+            text-align:right;
+        }
+    </style>
+
+</head>
+
+<body class="body">
+
+    <table class="table" align="center">
+
+        <tr>
+            <td colspan="4" align="center" class="td1">
+                <input type="text" class="disp" id="main" disabled>
+            </td>
+        </tr>
+
+        <tr>
+            <td colspan="2" align="center" class="td">
+                <input type="button" class="btn1" value="Delete" onclick="del()">
+            </td>
+            <td colspan="2" align="center" class="td">
+                <input type="button" class="btn1" value="Clear" onclick="clr()">
+            </td>
+        </tr>
+
+        <tr>
+            <td align="center" class="td">
+                <input type="button" class="btn" value="7" onclick="appendnumber('7')">
+            </td>
+            <td align="center" class="td">
+                <input type="button" class="btn" value="8" onclick="appendnumber('8')">
+            </td>
+            <td align="center" class="td">
+                <input type="button" class="btn" value="9" onclick="appendnumber('9')">
+            </td>
+            <td align="center" class="td">
+                <input type="button" class="btn" value="*" onclick="appendnumber('*')">
+            </td>
+        </tr>
+
+        <tr>
+            <td align="center" class="td">
+                <input type="button" class="btn" value="4" onclick="appendnumber('4')">
+            </td>
+            <td align="center" class="td">
+                <input type="button" class="btn" value="5" onclick="appendnumber('5')">
+            </td>
+            <td align="center" class="td">
+                <input type="button" class="btn" value="6" onclick="appendnumber('6')">
+            </td>
+            <td align="center" class="td">
+                <input type="button" class="btn" value="/" onclick="appendnumber('/')">
+            </td>
+        </tr>
+
+        <tr>
+            <td align="center" class="td">
+                <input type="button" class="btn" value="1" onclick="appendnumber('1')">
+            </td>
+            <td align="center" class="td">
+                <input type="button" class="btn" value="2" onclick="appendnumber('2')">
+            </td>
+            <td align="center" class="td">
+                <input type="button" class="btn" value="3" onclick="appendnumber('3')">
+            </td>
+            <td align="center" class="td">
+                <input type="button" class="btn" value="+" onclick="appendnumber('+')">
+            </td>
+        </tr>
+
+        <tr>
+            <td align="center" class="td">
+                <input type="button" class="btn" value="." onclick="appendnumber('.')">
+                </td>
+            <td align="center" class="td">
+                <input type="button" class="btn" value="0" onclick="appendnumber('0')">
+                </td>
+            <td align="center" class="td">
+                <input type="button" class="btn" value="=" onclick="answer('=')">
+                </td>
+            <td align="center" class="td">
+                <input type="button" class="btn" value="-" onclick="appendnumber('-')">
+                </td>
+        </tr>
+
+    </table>
+
+    <script type="text/javascript">
+
+        function del() {
+            let a = document.getElementById("main").value;
+            document.getElementById("main").value = a.slice(0 , -1);
+        }
+
+        function clr() {
+            document.getElementById("main").value = "";
+        }
+
+        function appendnumber(n) {
+            document.getElementById('main').value += n;
+        }
+
+        function answer() {
+            p = document.getElementById('main').value;
+            q = eval(p);
+            document.getElementById('main').value = q;
+        }
+
+    </script>
+
+</body>
+
+</html>
